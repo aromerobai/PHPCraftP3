@@ -35,8 +35,8 @@
                     @include('tu_controlador.mostrarFormularioRegistro') {{-- Aquí incluirías el contenido del formulario de registro --}}
                 @else
                     {{-- Mostrar los botones por defecto --}}
-                    <a class="btn btn-login" href="{{ route('login.form') }}">Log In</a>
-                    <a class="btn btn-register" href="{{ route('register.form') }}">Sign Up</a>
+                    <a class="btn btn-login" href="{{ route('login') }}">Log In</a>
+                    <a class="btn btn-register" href="{{ route('register') }}">Sign Up</a>
                 @endif
                 
             </div>

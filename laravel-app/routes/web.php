@@ -1,6 +1,6 @@
     <?php
 
-use App\Http\Controllers\loginControlador;
+use App\Http\Controllers\homeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +13,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 */
 
-Route::get("/",[loginControlador::class,"index"])->name("login.index");
-
+Route::get('/', [homeController::class, 'init']);
+Route::get('/mostrarFormularioRegistro', [homeController::class, 'mostrarFormularioRegistro'])->name('register');
+Route::get('/mostrarFormularioLogin', [homeController::class, 'mostrarFormularioLogin'])->name('login');

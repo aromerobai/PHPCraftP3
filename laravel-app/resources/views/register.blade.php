@@ -7,9 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Pantalla de Login</h1>
-    @foreach ($datos as $item)
-        {{$item->Nombre}}  <br>  
-    @endforeach
+    <h2>Register</h2>
 </body>
 </html>
