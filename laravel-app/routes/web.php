@@ -1,6 +1,7 @@
     <?php
 
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\loginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [homeController::class, 'init']);
 Route::get('/mostrarFormularioRegistro', [homeController::class, 'mostrarFormularioRegistro'])->name('register');
-Route::get('/mostrarFormularioLogin', [homeController::class, 'mostrarFormularioLogin'])->name('login');
+Route::get('/mostrarFormularioLogin', [loginController::class, 'init'])->name('login');

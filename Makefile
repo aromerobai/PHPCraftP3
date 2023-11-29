@@ -15,7 +15,7 @@ data:
 	docker exec laravel-docker bash -c "php artisan db:seed"
 
 
-# docker exec -it laravel-docker bash  # Acceder al contenedor
+# docker exec -it laravel-docker bash
 
 # chmod -R 775 /var/www/html/storage         # Cambiar permisos
 # chown -R www-data:www-data /var/www/html/storage  # Cambiar propietario
@@ -28,3 +28,8 @@ data:
 # nvm use node
 # npm install
 # npm install laravel-mix --save-dev
+
+# composer require --dev reliese/laravel
+# php artisan vendor:publish --tag=reliese-models
+# php artisan code:models
+

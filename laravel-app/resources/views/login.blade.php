@@ -8,5 +8,9 @@
 </head>
 <body>
     <h2>Login</h2>
+    @foreach ($usuarios as $usuario)
+            <li>{{ $gitusuario->Username }}</li>
+            <!-- Aquí puedes mostrar otros atributos del usuario -->
+    @endforeach
 </body>
 </html>
