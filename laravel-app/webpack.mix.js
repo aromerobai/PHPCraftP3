@@ -1,0 +1,1 @@
+mix.sass('resources/css/home.css', 'public/css');

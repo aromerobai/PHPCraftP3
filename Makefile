@@ -19,4 +19,12 @@ data:
 
 # chmod -R 775 /var/www/html/storage         # Cambiar permisos
 # chown -R www-data:www-data /var/www/html/storage  # Cambiar propietario
-# exit   
+# exit 
+# apt-get install -y nodejs
+# apt-get install -y npm
+# npm install -g vite
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+# nvm install node
+# nvm use node
+# npm install
+# npm install laravel-mix --save-dev

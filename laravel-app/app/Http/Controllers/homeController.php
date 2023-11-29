@@ -12,11 +12,11 @@ class homeController extends Controller
     
     public function mostrarFormularioRegistro()
     {
-        return redirect()->route('register'); // Redirigir a la ruta 'registro'
+        return view('register'); // Redirigir a la ruta 'registro'
     }
 
     public function mostrarFormularioLogin()
     {
-        return redirect()->route('login'); // Redirigir a la ruta 'login'
+        return view('login'); // Redirigir a la ruta 'login'
     }
 }
