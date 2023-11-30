@@ -15,24 +15,23 @@
                 <div class="card"> 
                     <div class="card-body">
                         <h1 class="text-login">Modificar</h1>
-                        <form action="./perfilUsuarioVista.php" method="post">
+                        <form action="{{ route('userProfileModify') }}" method="post"> 
                             @csrf
-                            <input type="hidden" name="id_usuario" value="{{ $id }}">
-                            <div class="form-group">
-                                <label for="usuario">Usuario:</label>
-                                <input type="text" id="usuario" name="usuario" class="form-control" placeholder="{{ $username }}">
+                            <input type="hidden" name="Id" value="{{ $Id }}">
+                            <div class="form-group"> 
+                                <label for="Username">Usuario:</label>
+                                <input type="text" id="Username" name="Username" class="form-control" placeholder="{{ $Username }}">
                             </div>
                             <div class="form-group">
-                                <label for="contrasena">Contraseña:</label>
-                                <input type="password" id="contrasena" name="contrasena" class="form-control" placeholder="{{ $password }}">
+                                <label for="Password">Contraseña:</label>
+                                <input type="password" id="Password" name="Password" class="form-control" placeholder="{{ $Password }}">
                             </div>
                             <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input id="email" name="email" class="form-control" placeholder="{{ $email }}">
+                                <label for="Email">Email:</label>
+                                <input id="Email" name="Email" class="form-control" placeholder="{{ $Email }}">
                             </div>
                             <div class="d-flex justify-content-between align-items-center flex-nowrap mt-3">
-                                <button type="submit" name="updateUsuario" class="btn btn-block btn-primary align-self-start mr-2">Modificar</button>
-                                <button onclick="" class="btn btn-block btn-secondary align-self-end">Cancelar</button>
+                                <button type="submit" class="btn btn-block btn-primary align-self-start mr-2">Modificar</button>
                             </div>
                         </form>
                     </div>
@@ -42,4 +41,5 @@
     </div>
 </body>
 </html>
+
     

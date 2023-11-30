@@ -12,17 +12,17 @@
 <body>
     <div class="container">
         <div class="jumbotron mt-3 text-center">
-            <h1 class="display-4">CALENDARIO DE {{ $user->Username }}
+            <h1 class="display-4">CALENDARIO DE {{ $Username }}
                 <a href="../../index.php" class="btn btn-primary button-cerrar">Cerrar sesión</a>
             </h1>
-            <p class="lead">Correo electrónico: {{ $user->Email }}</p>
+            <p class="lead">Correo electrónico: {{ $Email }}</p>
 
             <form action="{{ route('userProfile') }}" method="post"> 
                 @csrf
-                <input type="hidden" name="id" value="{{ $user->Id_usuario }}">
-                <input type="hidden" name="username" value="{{ $user->Username }}">
-                <input type="hidden" name="password" value="{{ $user->Password }}">
-                <input type="hidden" name="email" value="{{ $user->Email }}">
+                <input type="hidden" name="Id" value="{{ $Id }}">
+                <input type="hidden" name="Username" value="{{ $Username }}">
+                <input type="hidden" name="Password" value="{{ $Password }}">
+                <input type="hidden" name="Email" value="{{ $Email }}">
                 <button class="btn btn-primary usuario" type="submit">Mi perfil</button>
             </form><br>
             

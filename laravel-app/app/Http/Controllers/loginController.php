@@ -24,7 +24,12 @@ class loginController extends Controller
             // Verificar la contras
             if ($password === $usuario->Password) {
                 if($usuario->Id_tipo_usuario == 1){
-                    return view('user')->with('user', $usuario);
+                    return view('user')->with([
+                        'Id' => $usuario->id,
+                        'Username' => $usuario->Username,
+                        'Password' => $usuario->Password,
+                        'Email' => $usuario->Email,
+                    ]);
                 }elseif($usuario->Id_tipo_usuario == 2){
                     return view('ponente');
                 }elseif($usuario->Id_tipo_usuario == 3){
