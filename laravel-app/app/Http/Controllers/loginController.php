@@ -15,7 +15,6 @@ class loginController extends Controller
     public function userLogin(Request $request)
     {
         $mensaje = 'HAS ACTUALIZADO';
-        
         return view('login')->with('mensaje', $mensaje);
     }
 }
