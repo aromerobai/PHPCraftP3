@@ -13,7 +13,9 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'mostrarFormularioLogin',
+        'mostrarFormularioRegistro',
         'userProfile',
+       
         'userCancelar',
         'userProfileModify',
     ];

@@ -37,8 +37,7 @@ class loginController extends Controller
                 }else{
                     $mensaje = 'No hay un tipo de usuario definido para este usuario:  ' . $username;
                     return view('login')->with('mensaje', $mensaje);
-                }
-                
+                }  
             }
         }
 
