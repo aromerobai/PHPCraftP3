@@ -21,26 +21,28 @@ class registerController extends Controller
 
         // Crear una nueva persona
         $persona = Persona::create([
-            'nombre' => $nombre,
-            'apellido1' => $apellido1,
-            'apellido2' => $apellido2,
+            'Nombre' => $nombre,
+            'Apellido1' => $apellido1,
+            'Apellido2' => $apellido2,
         ]);
 
         // Si se crea la persona correctamente, crea un usuario asociado
         if ($persona) {
-            Usuario::create([
-                'username' => $username,
-                'password' => bcrypt($password), 
-                'id_persona' => $persona->id, 
-                'id_tipo_usuario' => $id_tipo_usuario,
-                'email' => $email,
+            $usuario = Usuario::create([
+                'Username' => $username,
+                'Password' => bcrypt($password), 
+                'Id_Persona' => $persona->Id_persona, 
+                'Id_tipo_usuario' => $id_tipo_usuario,
+                'Email' => $email,
             ]);
             
             // Redirige después del registro exitoso
-            return redirect('/')->with('success', '¡Registro exitoso!');
+            $mensaje = '¡Registro exitoso!';
+            return view('home')->with('mensaje', $mensaje);
         }
 
         // En caso de falla en el registro
-        return redirect()->back()->with('error', 'Error en el registro!');
+        $mensaje = 'Error en el registro!';
+        return view('register')->with('mensaje', $mensaje);
     }
 }
