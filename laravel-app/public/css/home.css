@@ -7,7 +7,7 @@ html, body {
 /*Estilo para la columna del titulo de la aplicación */
 .aplication-column {
     min-height: 100vh; 
-    background-color: rgb(243, 243, 230);
+    background-color: rgb(238, 238, 178);
 }
 
 /*Estilo para el titulo de la aplicación */
@@ -19,9 +19,9 @@ html, body {
 /*Estilo para la columna de las funciones */
 .column-function {
     display: flex;
-    flex-direction: column; /* Apila los elementos verticalmente */
-    justify-content: center; /* Centra verticalmente los elementos en la columna */
-    align-items: center; /* Centra horizontalmente los elementos en la columna */
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
     height: 100vh;
 }
 
