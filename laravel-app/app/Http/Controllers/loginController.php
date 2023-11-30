@@ -16,6 +16,6 @@ class loginController extends Controller
     {
         $mensaje = 'HAS ACTUALIZADO';
         
-        return view('login', compact('mensaje', $mensaje));
+        return view('login')->with('mensaje', $mensaje);
     }
 }
