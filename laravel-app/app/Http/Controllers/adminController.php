@@ -8,11 +8,11 @@ class adminController extends Controller
 {
     public function crearActo()
     {
-        return redirect()->route('crear-acto');
+        return view()->route('crearActo');
     }
 
     public function configurarActo()
     {
-        return redirect()->route('gestio-acto');
+        return view()->route('confActo');
     }
 }

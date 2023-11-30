@@ -25,3 +25,5 @@ Route::get('/mostrarFormularioLogin', [loginController::class, 'init'])->name('l
 Route::post('/mostrarFormularioLogin',[loginController::class, 'userLogin'])->name("userLogin");
 Route::post('/mostrarFormularioRegistro',[registerController::class, 'register'])->name("register");
 Route::post('/userProfile', [userController::class,'userProfile'])->name("userProfile");
+Route::get('/crearActo', [AdminController::class, 'crearActo'])->name('crearActo');
+Route::get('/confActo', [AdminController::class, 'confActo'])->name('confActo');
