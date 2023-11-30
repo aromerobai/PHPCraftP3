@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,5 @@ Route::get('/mostrarFormularioRegistro', [homeController::class, 'mostrarFormula
 Route::get('/mostrarFormularioLogin', [loginController::class, 'init'])->name('login');
 
 Route::post('/mostrarFormularioLogin',[loginController::class, 'userLogin'])->name("userLogin");
+
+Route::post('/userProfile', [userController::class,'userProfile'])->name("userProfile");

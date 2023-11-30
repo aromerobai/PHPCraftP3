@@ -20,6 +20,7 @@ data:
 # chmod -R 775 /var/www/html/storage         # Cambiar permisos
 # chown -R www-data:www-data /var/www/html/storage  # Cambiar propietario
 # exit 
+
 # apt-get install -y nodejs
 # apt-get install -y npm
 # npm install -g vite
@@ -27,8 +28,8 @@ data:
 # nvm install node
 # nvm use node
 # npm install
-# npm install laravel-mix --save-dev
 
+# npm install laravel-mix --save-dev
 # composer require --dev reliese/laravel
 # php artisan vendor:publish --tag=reliese-models
 # php artisan code:models
