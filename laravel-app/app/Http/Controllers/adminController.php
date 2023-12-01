@@ -15,4 +15,8 @@ class adminController extends Controller
     {
         return redirect()->route('gestio-acto');
     }
+
+    public function adminBack(){
+        return view('admin');
+    }
 }

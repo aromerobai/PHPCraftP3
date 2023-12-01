@@ -20,15 +20,15 @@
                             <input type="hidden" name="Id" value="{{ $Id }}">
                             <div class="form-group"> 
                                 <label for="Username">Usuario:</label>
-                                <input type="text" id="Username" name="Username" class="form-control" placeholder="{{ $Username }}">
+                                <input type="text" id="newUsername" name="newUsername" class="form-control" placeholder="{{ $Username }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="Password">Contraseña:</label>
-                                <input type="password" id="Password" name="Password" class="form-control" placeholder="{{ $Password }}">
+                                <input type="password" id="newPassword" name="newPassword" class="form-control" placeholder="{{ $Password }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="Email">Email:</label>
-                                <input id="Email" name="Email" class="form-control" placeholder="{{ $Email }}">
+                                <input id="newEmail" name="newEmail" class="form-control" placeholder="{{ $Email }}" required>
                             </div>
                             <div class="d-flex justify-content-between align-items-center flex-nowrap mt-3">
                                 <button type="submit" class="btn btn-block btn-primary align-self-start mr-2">Modificar</button>

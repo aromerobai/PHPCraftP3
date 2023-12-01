@@ -30,7 +30,7 @@ class registerController extends Controller
         if ($persona) {
             $usuario = Usuario::create([
                 'Username' => $username,
-                'Password' => bcrypt($password), 
+                'Password' => $password, 
                 'Id_Persona' => $persona->Id_persona, 
                 'Id_tipo_usuario' => $id_tipo_usuario,
                 'Email' => $email,

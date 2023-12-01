@@ -25,7 +25,8 @@ class loginController extends Controller
             if ($password === $usuario->Password) {
                 if($usuario->Id_tipo_usuario == 1){
                     return view('user')->with([
-                        'Id' => $usuario->id,
+                        'Id' => $usuario->Id_usuario,
+                        'Id_persona' => $usuario->Id_persona,
                         'Username' => $usuario->Username,
                         'Password' => $usuario->Password,
                         'Email' => $usuario->Email,

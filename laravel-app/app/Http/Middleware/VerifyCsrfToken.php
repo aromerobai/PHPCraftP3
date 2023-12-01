@@ -15,8 +15,13 @@ class VerifyCsrfToken extends Middleware
         'mostrarFormularioLogin',
         'mostrarFormularioRegistro',
         'userProfile',
-       
         'userCancelar',
         'userProfileModify',
+        'userInscription',
+        'userAddInscription',
+        'userAddInscriptionBack',
+        'userBack',
+        'userDesInscription',
+        'userDesAddInscription',
     ];
 }
