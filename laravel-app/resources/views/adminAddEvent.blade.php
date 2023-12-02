@@ -46,8 +46,17 @@
                                 <label for="id_tipo_acto">Tipo de Acto</label>
                                 <select name="id_tipo_acto" class="form-control" required> 
                                     <?php
-                                    //include("../../controlador/crActoControlador.php");
-                                    //obtenerTiposDeActos();    
+                                    use App\Models\tipoActo;
+                                    $resultado = tipoActo::all();
+                                    if ($resultado) {
+                                        foreach ($resultado as $tipoActo) {
+                                            $Id_tipo_acto = $tipoActo['Id_tipo_acto'];
+                                            $Descripcion = $tipoActo['Descripcion'];
+                                            echo '<option value="' . $Id_tipo_acto . '">' . $Descripcion . '</option>'; 
+                                        }
+                                    } else {
+                                        echo "No hay tipos de actos disponibles.";
+                                    }   
                                     ?> 
                                 </select>
                             </div>
@@ -57,20 +66,14 @@
                             </div>
                             <button type="submit" name="crearActo" class="btn btn-primary btn-block">Crear Evento</button>
                                                 
-                            <?php
-                               /* if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                                    $mensaje = añadirEvento();
-                                
-                                    if ($mensaje === 'Error al crear el evento!') {
-                                        echo "<p style='color:red; margin-top:15px'>Error al registrar el evento</p>";
-                                    } else {
-                                        // Redirección a la página de inicio
-                                        echo '<meta http-equiv="refresh" content="0;url=./menuAdministracion.php">';
-                                        exit();
-                                    }
-                                }*/
-                            ?>
-
+                            @if(isset($mensaje))
+                                @if($mensaje === 'Error al crear el evento')
+                                    <p style='color:red; margin-top:15px'>Error al registrar el evento</p>
+                                @else
+                                    <p style='color:green; margin-top:15px'>Se ha registrado el evento</p>
+                                @endif
+                            @endif
+                            
                         </form>
                         <a href="{{ route('adminBack') }}" class="btn btn-primary button-cerrar">Atras</a>
                     </div>

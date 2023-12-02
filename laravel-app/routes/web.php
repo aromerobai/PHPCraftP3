@@ -10,7 +10,10 @@ use App\Http\Controllers\userDesInscriptionController;
 use App\Http\Controllers\adminAddEventController;
 use App\Http\Controllers\adminConfigEventController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\adminEditEventController;
+use App\Http\Controllers\adminPonenteController;
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -39,13 +42,14 @@ Route::post('/userDesInscription', [userController::class,'userDesInscription'])
 Route::get('/usuarioVista', [userController::class,'usuarioVista'])->name("usuarioVista");
 
 Route::post('/userProfileModify', [userProfileController::class,'userProfileModify'])->name("userProfileModify");
-
 Route::post('/userAddInscription', [userInscriptionController::class,'userAddInscription'])->name("userAddInscription");
 Route::post('/userAddInscriptionBack', [userInscriptionController::class,'userAddInscriptionBack'])->name("userAddInscriptionBack");
-
 Route::post('/userDesAddInscription', [userDesInscriptionController::class,'userDesAddInscription'])->name("userDesAddInscription");
 
 Route::get('/adminBack', [adminController::class,'adminBack'])->name("adminBack");
 Route::get('/adminAddEvent', [adminAddEventController::class,'adminAddEvent'])->name("adminAddEvent");
-Route::get('/adminAddEventInsert', [adminAddEventController::class,'adminAddEventInsert'])->name("adminAddEventInsert");
+Route::post('/adminAddEventInsert', [adminAddEventController::class,'adminAddEventInsert'])->name("adminAddEventInsert");
 Route::get('/adminConfigEvent', [adminConfigEventController::class,'adminConfigEvent'])->name("adminConfigEvent");
+Route::get('/editEvent', [adminEditEventController::class,'editEvent'])->name("editEvent");
+Route::post('/adminEditFullEvent', [adminEditEventController::class,'adminEditFullEvent'])->name("adminEditFullEvent");
+Route::get('/adminPonente', [adminPonenteController::class,'adminPonente'])->name("adminPonente");

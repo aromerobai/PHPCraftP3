@@ -17,8 +17,8 @@
         <h1>Configuración Evento</h1>
         <div class="buttons-container">
             <div class="button-group">
-                    <a href="?action=editarActo" class="btn btn-primary button-editar-evento">EDITAR EVENTO</a>
-                    <a href="?action=confiPonente" class="btn btn-primary button-ponente">GESTIÓN PONENTES</a>
+                    <a href="{{route('editEvent')}}" class="btn btn-primary button-editar-evento">EDITAR EVENTO</a>
+                    <a href="{{route('adminPonente')}}" class="btn btn-primary button-ponente">GESTIÓN PONENTES</a>
             </div>
             <div class="button-group">
                     <a href="?action=editarTipoEvento" class="btn btn-primary button-crear-tipoActo">GESTIÓN TIPOS EVENTO</a>
