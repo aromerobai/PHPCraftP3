@@ -37,7 +37,8 @@
                                 <div class="ponente">
                                     <span>ID: {{ $ponente['id_ponente'] }}, ID personal: {{ $ponente['Id_persona'] }}, ID evento inscrito: {{ $ponente['Id_acto'] }}, Orden: {{ $ponente['Orden'] }}</span>
                                     <button class="btn btn-editar-acto" data-id="{{ $ponente['id_ponente'] }}">Editar</button>
-                                    <form method="POST" class="formulario-editar-ponente border p-3" style="display:none;">
+                                    
+                                    <form method="POST" action="{{ route('adminGestionarPonente') }}" class="formulario-editar-ponente border p-3" style="display:none;">
                                         <input type="hidden" name="id_ponente" value="{{ $Id_ponente }}">
                                         <div class="form-group">
                                             <label for="id_persona">ID personal</label>
@@ -87,7 +88,7 @@
                         <button class="btn btn-primary" id="btnMostrarFormulario">Agregar</button>
                                 
                             <!-- Formulario de registro Ponente-->
-                            <form class="border p-3" action="./ponente.php" method="post" id="formularioCrearPonente" style="display: none;">
+                            <form class="border p-3" action="{{ route('adminCrearPonente') }}" method="post" id="formularioCrearPonente" style="display: none;">
                                 <div class="form-group">
                                     <label for="id_persona">ID personal</label>
                                     <select name="id_persona" class="form-control" required>
@@ -139,7 +140,7 @@
                                     }*/
                                 ?>   
                             </form>
-                        <a href="./gestio_acto.php" class="btn btn-primary button-atras">Atrás</a>
+                        <a href="{{ route('adminBack') }}" class="btn btn-primary button-atras">Atras</a>
                     </div>
                 </div>
             </div>

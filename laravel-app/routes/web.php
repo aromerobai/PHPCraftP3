@@ -53,3 +53,5 @@ Route::get('/adminConfigEvent', [adminConfigEventController::class,'adminConfigE
 Route::get('/editEvent', [adminEditEventController::class,'editEvent'])->name("editEvent");
 Route::post('/adminEditFullEvent', [adminEditEventController::class,'adminEditFullEvent'])->name("adminEditFullEvent");
 Route::get('/adminPonente', [adminPonenteController::class,'adminPonente'])->name("adminPonente");
+Route::post('/adminCrearPonente', [adminPonenteController::class,'adminCrearPonente'])->name("adminCrearPonente");
+Route::post('/adminGestionarPonente', [adminPonenteController::class,'adminGestionarPonente'])->name("adminGestionarPonente");

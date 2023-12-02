@@ -25,5 +25,7 @@ class VerifyCsrfToken extends Middleware
         'userDesAddInscription',
         'adminAddEventInsert',
         'adminEditFullEvent',
+        'adminCrearPonente',
+        'adminGestionarPonente',
     ];
 }
