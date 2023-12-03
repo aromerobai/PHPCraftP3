@@ -14,7 +14,7 @@
 <body>
     <div class="container text-center principal">
         <h1>Panel de Administración
-            <a href="{{ route('userBack') }}" class="btn btn-primary button-cerrar">Cerrar sesión</a>
+            <a href="{{ url('home') }}" class="btn btn-primary button-cerrar">Cerrar sesión</a>
         </h1>
         <div class="buttons-container m-100">
 
