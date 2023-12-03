@@ -15,11 +15,9 @@ data:
 	docker exec laravel-docker bash -c "php artisan db:seed"
 
 
-# docker exec -it laravel-docker bash
-
-# chmod -R 775 /var/www/html/storage         # Cambiar permisos
-# chown -R www-data:www-data /var/www/html/storage  # Cambiar propietario
-# exit 
+ docker exec -it laravel-docker bash
+ chmod -R 775 /var/www/html/storage         # Cambiar permisos
+ chown -R www-data:www-data /var/www/html/storage  # Cambiar propietario
 
 # apt-get install -y nodejs
 # apt-get install -y npm
