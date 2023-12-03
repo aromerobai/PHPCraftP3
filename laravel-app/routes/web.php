@@ -43,6 +43,7 @@ Route::post('/userDesInscription', [userController::class,'userDesInscription'])
 Route::get('/usuarioVista', [userController::class,'usuarioVista'])->name("usuarioVista");
 
 Route::post('/userProfileModify', [userProfileController::class,'userProfileModify'])->name("userProfileModify");
+Route::get('/userProfileBack', [userProfileController::class,'userProfileBack'])->name("userProfileBack");
 Route::post('/userAddInscription', [userInscriptionController::class,'userAddInscription'])->name("userAddInscription");
 Route::post('/userAddInscriptionBack', [userInscriptionController::class,'userAddInscriptionBack'])->name("userAddInscriptionBack");
 Route::post('/userDesAddInscription', [userDesInscriptionController::class,'userDesAddInscription'])->name("userDesAddInscription");
@@ -63,4 +64,5 @@ Route::get('/configInscritos', [adminConfigInscritos::class,'configInscritos'])-
 Route::get('/configInscritosGest', [adminConfigInscritos::class,'configInscritosGest'])->name("configInscritosGest");
 Route::get('/configInscribir', [adminConfigInscritos::class,'configInscribir'])->name("configInscribir");
 Route::get('/configDesInscribir', [adminConfigInscritos::class,'configDesInscribir'])->name("configDesInscribir");
-
+Route::get('/adminDesincribir', [adminConfigInscritos::class,'adminDesincribir'])->name("adminDesincribir");
+Route::get('/adminIncribir', [adminConfigInscritos::class,'adminIncribir'])->name("adminIncribir");

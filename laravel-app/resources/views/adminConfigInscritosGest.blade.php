@@ -3,6 +3,7 @@
 use App\Models\Inscrito;
 use App\Models\Persona;
 
+
 if(isset($_GET['id_acto'])) {
     $id_acto = $_GET['id_acto'];
     $titulo = $_GET['titulo'];
@@ -13,13 +14,27 @@ if(isset($_GET['id_acto'])) {
 if(isset($_GET['id_persona_seleccionada'])){
     $id_acto_desinscribir = $_GET['id_acto'];
     $id_persona = $_GET['id_persona_seleccionada'];
-    //deleteInscrito($id_acto_desinscribir,$id_persona);
+    $inscripcion = Inscrito::where('id_acto', $id_acto_desinscribir)
+    ->where('Id_persona', $id_persona)
+    ->first();
+    if ($inscripcion) {
+        $inscripcion->delete();
+    }
 }
 
 if(isset($_GET['id_persona_inscribir'])){
-    $id_acto_desinscribir = $_GET['id_acto'];
+    $id_acto_inscribir = $_GET['id_acto'];
     $id_persona = $_GET['id_persona_inscribir'];
-    //$mensaje = crearInscripcion($id_persona, $id_acto_desinscribir);
+
+    // Obtener la fecha y hora actual
+    $fecha_actual = Carbon::now();
+
+    // Crear un nuevo registro de inscripción utilizando Eloquent
+    $nueva_inscripcion = new Inscrito();
+    $nueva_inscripcion->Id_persona = $id_persona;
+    $nueva_inscripcion->id_acto = $id_acto_inscribir;
+    $nueva_inscripcion->Fecha_inscripcion = $fecha_actual;
+    $nueva_inscripcion->save();
 }
 
 ?>
@@ -63,17 +78,19 @@ if(isset($_GET['id_persona_inscribir'])){
                             $nombre = $persona['Nombre'];
                             $apellido1 = $persona['Apellido1'];
                             $apellido2 = $persona['Apellido2'];
-                            echo "<div class='container-inscrito'>";
-                            echo "<p> Nombre: " . $nombre . " " . $apellido1 . " " . $apellido2 . "</p>";
-                            echo "<form method='get' action='inscritosActo.php'>";
-                            echo '<input type="hidden" name="id_acto" value="' . $id_acto . '">';
-                            echo '<input type="hidden" name="titulo" value="' . $titulo . '">';
-                            echo '<input type="hidden" name="id_persona_seleccionada" value="' . $id_persona_seleccionada . '">';
-                            echo '<input type="hidden" name="view" value="desinscribir">';
-                            echo '<button class="btn btn-primary inscribirse" type="submit" name="desinscribirse" value="desinscribirse">DesInscribir</button>';
-                            echo '</form>';
-                            echo "<br>";
-                            echo "</div>";
+                            ?>
+                            <div class='container-inscrito'>
+                                <p> Nombre: {{$nombre}}  {{$apellido1}} {{$apellido2}} </p>
+                                <form method='get' action='{{ route('adminDesincribir') }}'>
+                                    <input type="hidden" name="id_acto" value="{{$id_acto}}">
+                                    <input type="hidden" name="titulo" value="{{$titulo}}">
+                                    <input type="hidden" name="id_persona_seleccionada" value="{{$id_persona_seleccionada}}">
+                                    <input type="hidden" name="view" value="desinscribir">
+                                    <button class="btn btn-primary inscribirse" type="submit" name="desinscribirse" value="desinscribirse">DesInscribir</button>
+                                </form>
+                                <br>
+                            </div>
+                            <?php
                         }
                     }
                 }
@@ -93,24 +110,26 @@ if(isset($_GET['id_persona_inscribir'])){
                         ->first();
 
                     if ($inscripcion === null) {
-                        echo "<div class='container-inscrito'>";
-                        echo " Nombre: " . $nombre . " " . $apellido1 . " " . $apellido2 . " ";
-                        echo "<form method='get' action='inscritosActo.php'>";
-                        echo '<input type="hidden" name="id_acto" value="' . $id_acto . '">';
-                        echo '<input type="hidden" name="titulo" value="' . $titulo . '">';
-                        echo '<input type="hidden" name="id_persona_inscribir" value="' . $id_persona_inscribir . '">';
-                        echo '<input type="hidden" name="view" value="inscribir">';
-                        echo '<button class="btn btn-primary inscribirse" type="submit" name="inscribirse" value="inscribirse">Inscribir</button>';
-                        echo '</form>';
-                        echo "<br>";
-                        echo "</div>";
+                        ?>
+                        <div class='container-inscrito'>
+                        <p>Nombre: {{$nombre}}  {{$apellido1}}  {{$apellido2}}</p>
+                        <form method='get' action='{{ route('adminIncribir') }}'>
+                            <input type="hidden" name="id_acto" value="{{$id_acto}}">
+                            <input type="hidden" name="titulo" value="{{$titulo}}">
+                            <input type="hidden" name="id_persona_inscribir" value="{{$id_persona_inscribir}}">
+                            <input type="hidden" name="view" value="inscribir">
+                            <button class="btn btn-primary inscribirse" type="submit" name="inscribirse" value="inscribirse">Inscribir</button>
+                        </form>
+                        <br>
+                        </div>
+                        <?php
                     }
                 }
             }
         }
         echo "</div>";
         ?>
-        <a href="./inscritos.php" class="btn btn-primary button-atras">Atrás</a>
+        <a href="{{ route('configInscritos') }}" class="btn btn-primary button-atras">Atras</a>
         </div>
     </div>
 </body>

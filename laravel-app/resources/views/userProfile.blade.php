@@ -32,6 +32,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center flex-nowrap mt-3">
                                 <button type="submit" class="btn btn-block btn-primary align-self-start mr-2">Modificar</button>
+                                <a href="{{ route('userProfileBack') }}" class="btn btn-block btn-secondary align-self-end">Atras</a>
                             </div>
                         </form>
                     </div>

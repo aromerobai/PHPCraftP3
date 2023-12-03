@@ -32,4 +32,8 @@ class userProfileController extends Controller
         }
         
     }
+
+    public function userProfileBack(){
+        return view('login');
+    }
 }

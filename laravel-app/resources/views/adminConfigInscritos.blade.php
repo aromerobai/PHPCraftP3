@@ -38,7 +38,7 @@
                             }
                         ?>  
                     </div>
-                    <a href="./gestio_acto.php" class="btn btn-primary button-atras">Atrás</a>
+                    <a href="{{ route('adminBack') }}" class="btn btn-primary button-atras">Atras</a>
                 </div>
             </div>
         </div>

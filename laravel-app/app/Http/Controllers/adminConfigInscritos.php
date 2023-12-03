@@ -32,4 +32,23 @@ class adminConfigInscritos extends Controller
 
         return view('adminConfigInscritosGest', compact('view','Id_acto', 'Titulo'));
     }
+
+    public function adminDesincribir(Request $request){
+        $view = $request->input('view');
+        $Id_acto = $request->input('id_acto');
+        $Titulo = $request->input('titulo');
+        $id_persona_seleccionada = $request->input('id_persona_seleccionada');
+
+        return view('adminConfigInscritosGest', compact('view','Id_acto', 'Titulo','id_persona_seleccionada'));
+    }
+
+    public function adminIncribir(Request $request){
+        $view = $request->input('view');
+        $Id_acto = $request->input('id_acto');
+        $Titulo = $request->input('titulo');
+        $id_persona_inscribir = $request->input('id_persona_inscribir');
+
+        return view('adminConfigInscritosGest', compact('view','Id_acto', 'Titulo','id_persona_inscribir'));
+    }
+    
 }
