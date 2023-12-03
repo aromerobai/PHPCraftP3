@@ -12,8 +12,9 @@ use App\Http\Controllers\adminConfigEventController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\adminEditEventController;
 use App\Http\Controllers\adminPonenteController;
+use App\Http\Controllers\adminTypeEventController;
+use App\Http\Controllers\adminConfigInscritos;
 use Illuminate\Support\Facades\Route;
-
 
 
 /*
@@ -55,3 +56,11 @@ Route::post('/adminEditFullEvent', [adminEditEventController::class,'adminEditFu
 Route::get('/adminPonente', [adminPonenteController::class,'adminPonente'])->name("adminPonente");
 Route::post('/adminCrearPonente', [adminPonenteController::class,'adminCrearPonente'])->name("adminCrearPonente");
 Route::post('/adminGestionarPonente', [adminPonenteController::class,'adminGestionarPonente'])->name("adminGestionarPonente");
+Route::get('/adminTypeEvent', [adminTypeEventController::class,'adminTypeEvent'])->name("adminTypeEvent");
+Route::post('/adminTypeEventEdit', [adminTypeEventController::class,'adminTypeEventEdit'])->name("adminTypeEventEdit");
+Route::post('/adminTypeEventAdd', [adminTypeEventController::class,'adminTypeEventAdd'])->name("adminTypeEventAdd");
+Route::get('/configInscritos', [adminConfigInscritos::class,'configInscritos'])->name("configInscritos");
+Route::get('/configInscritosGest', [adminConfigInscritos::class,'configInscritosGest'])->name("configInscritosGest");
+Route::get('/configInscribir', [adminConfigInscritos::class,'configInscribir'])->name("configInscribir");
+Route::get('/configDesInscribir', [adminConfigInscritos::class,'configDesInscribir'])->name("configDesInscribir");
+

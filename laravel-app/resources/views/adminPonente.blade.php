@@ -127,18 +127,6 @@
                                     <input type="number" name="orden" class="form-control" required>
                                 </div>      
                                 <button type="submit" name="añadirPonente" class="btn btn-agregar">Crear Ponente</button> 
-                                <?php
-                                    /*if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                                        $mensaje = añadirPonentes();
-                                    
-                                        if ($mensaje === 'Error al añadir ponente!') {
-                                            echo "<p style='color:red; margin-top:15px'>Error al registrar el ponente</p>";
-                                        } else {
-                                            echo '<meta http-equiv="refresh" content="0;url=./ponente.php">';
-                                            exit();
-                                        }
-                                    }*/
-                                ?>   
                             </form>
                         <a href="{{ route('adminBack') }}" class="btn btn-primary button-atras">Atras</a>
                     </div>

@@ -21,8 +21,8 @@
                     <a href="{{route('adminPonente')}}" class="btn btn-primary button-ponente">GESTIÓN PONENTES</a>
             </div>
             <div class="button-group">
-                    <a href="?action=editarTipoEvento" class="btn btn-primary button-crear-tipoActo">GESTIÓN TIPOS EVENTO</a>
-                    <a href="?action=adminInscritos" class="btn button-configurar-inscritos">GESTIÓN INSCRITOS</a>
+                    <a href="{{route('adminTypeEvent')}}" class="btn btn-primary button-crear-tipoActo">GESTIÓN TIPOS EVENTO</a>
+                    <a href="{{route('configInscritos')}}" class="btn button-configurar-inscritos">GESTIÓN INSCRITOS</a>
             </div>
         </div>
         <a href="{{ route('adminBack') }}" class="btn button-atras">Atras</a>
