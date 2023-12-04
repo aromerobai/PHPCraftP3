@@ -44,9 +44,9 @@
                                             <label for="id_persona">ID personal</label>
                                             <select name="id_persona" class="form-control" required>
                                                 @php  
-                                                $resultados = Usuario::all();
-                                                if ($resultados){
-                                                    foreach($resultados as $usuario) {
+                                                $usuarios = Usuario::all();
+                                                if ($usuarios){
+                                                    foreach($usuarios as $usuario) {
                                                         $Id_persona = $usuario['Id_Persona'];
                                                         $Id_tipo_usuario = $usuario['Id_tipo_usuario'];
                                                         $Username = $usuario['Username'];
@@ -62,9 +62,9 @@
                                             <label for="id_acto">ID evento</label>
                                             <select name="id_acto" class="form-control" required>
                                                 @php
-                                                $resultados = Acto::all();
-                                                if ($resultados){
-                                                    foreach($resultados as $acto) {
+                                                $actos = Acto::all();
+                                                if ($actos){
+                                                    foreach($actos as $acto) {
                                                         $Id_acto = $acto['Id_acto'];
                                                         $Titulo = $acto['Titulo'];
                                                         echo '<option value="' . $Id_acto. '">' . $Titulo . '</option>'; 

@@ -16,8 +16,8 @@ data:
 
 
  docker exec -it laravel-docker bash
- chmod -R 775 /var/www/html/storage         # Cambiar permisos
- chown -R www-data:www-data /var/www/html/storage  # Cambiar propietario
+ chmod -R 775 /var/www/html/storage         
+ chown -R www-data:www-data /var/www/html/storage 
 
 # apt-get install -y nodejs
 # apt-get install -y npm
