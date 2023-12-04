@@ -2,6 +2,7 @@
 
 use App\Models\Inscrito;
 use App\Models\Persona;
+use Carbon\Carbon;
 
 
 if(isset($_GET['id_acto'])) {
