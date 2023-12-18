@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(243, 243, 230);
+}
+
+.inscripcion {
+    margin-top: 35px;
+    margin-bottom: 10px;
+    border: 2px solid #000000; /* Añade un borde negro */
+    padding: 20px; /* Espacio entre el borde y el contenido */
+    background-color: #ffffff; /* Fondo blanco para la caja */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Sombra opcional para un efecto elevado */
+    border-radius: 10px; /* Bordes redondeados para un aspecto más suave */
+}
+.centered-content {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.content-box {
+    max-width: 600px; /* Ajusta según sea necesario */
+}
+
+.row {
+    justify-content: center;
+    align-items: center;
+    /* Elimina min-height si no es necesario */
+}
