@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [homeController::class, 'init']);
 Route::get('/mostrarFormularioRegistro', [homeController::class, 'mostrarFormularioRegistro'])->name('register');
 Route::get('/mostrarFormularioLogin', [loginController::class, 'init'])->name('login');
+Route::get('/mostrarActos', [homeController::class, 'mostrarActos'])->name('actos');
 
 Route::post('/mostrarFormularioLogin',[loginController::class, 'userLogin'])->name("userLogin");
 Route::post('/mostrarFormularioRegistro',[registerController::class, 'register'])->name("register");

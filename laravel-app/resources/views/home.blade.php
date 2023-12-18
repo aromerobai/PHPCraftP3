@@ -22,6 +22,14 @@
             <!-- Primera Columna - Nombre de la Aplicación -->
             <div class="col-7 text-center aplication-column">
                 <h1 class="name-aplication">Inscribify</h1>
+
+                @if  (request()->has('action') && request()->get('action') == 'mostrarActos')
+                {{-- Si se hace clic en "Ver actos", mostrar la vista de actos--}}
+                @include('home.mostrarActos') 
+                @else
+                <a Class="btn btn-actos" href="{{ route('actos') }}">Ver eventos</a>
+                @endif
+                
             </div>
 
             <!-- Segunda Columna - Botones de Logearse y Registrarse -->
@@ -31,16 +39,15 @@
                 
                 @if (request()->has('action') && request()->get('action') == 'mostrarFormularioLogin')
                     {{-- Si se hace clic en "Log In", mostrar el formulario de inicio de sesión --}}
-                    @include('tu_controlador.mostrarFormularioLogin') {{-- Aquí incluirías el contenido del formulario de inicio de sesión --}}
+                    @include('home.mostrarFormularioLogin') 
                 @elseif (request()->has('action') && request()->get('action') == 'mostrarFormularioRegistro')
                     {{-- Si se hace clic en "Sing Up", mostrar el formulario de registro --}}
-                    @include('tu_controlador.mostrarFormularioRegistro') {{-- Aquí incluirías el contenido del formulario de registro --}}
+                    @include('home.mostrarFormularioRegistro') 
                 @else
                     {{-- Mostrar los botones por defecto --}}
                     <a class="btn btn-login" href="{{ route('login') }}">Log In</a>
-                    <a class="btn btn-register" href="{{ route('register') }}">Sign Up</a>
+                    <a class="btn btn-register" href="{{ route('register') }}">Sign Up</a>    
                 @endif
-                
             </div>
         </div>
     </div>

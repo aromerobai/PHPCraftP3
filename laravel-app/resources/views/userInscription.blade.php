@@ -38,7 +38,7 @@
                         @if (!$estaInscrito)
                             <div class='inscripcion'>
                                 <h3 class='mb-4'>{{ $acto->Titulo }}</h3>
-                                <p>Fecha: {{ $acto->Fecha }} | Hora:{{ $acto->Hora }}</p>
+                                <p>Fecha: {{ date('Y-m-d', strtotime($acto->Fecha)) }} | Hora: {{ date('H:i', strtotime($acto->Hora)) }}</p>
                                 <p>{{ $acto->Descripcion_corta }}</p>
 
                                 <form action="{{ route('userAddInscription') }}" method="post">
@@ -54,15 +54,15 @@
                         @endforeach
                         <br>
                     </div>
+                    <form action="{{ route('userAddInscriptionBack') }}" method="post">
+                        <input type='hidden' name='id_acto' value='{{ $acto->Id_acto }}'> 
+                        <input type='hidden' name='id_persona' value='{{ $Id }}'>
+                        <input type='hidden' name='password' value='{{ $Password }}'>
+                        <input type='hidden' name='email' value='{{ $Email }}'>
+                        <input type='hidden' name='username' value='{{ $Username }}'>
+                        <button type='submit' name='inscribirse' class='btn btn-primary btn-inscripcion'>Volver</button>
+                    </form>
                 </div>
-                <form action="{{ route('userAddInscriptionBack') }}" method="post">
-                    <input type='hidden' name='id_acto' value='{{ $acto->Id_acto }}'> 
-                    <input type='hidden' name='id_persona' value='{{ $Id }}'>
-                    <input type='hidden' name='password' value='{{ $Password }}'>
-                    <input type='hidden' name='email' value='{{ $Email }}'>
-                    <input type='hidden' name='username' value='{{ $Username }}'>
-                    <button type='submit' name='inscribirse' class='btn btn-primary btn-inscripcion'>Volver</button>
-                </form>
             </div>
         </div>
     </div>

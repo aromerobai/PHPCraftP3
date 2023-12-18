@@ -38,3 +38,11 @@ html, body {
     font: 400 35px 'Montserrat', sans-serif;
     color: rgb(63, 52, 52);;
 }
+.btn-actos {
+    width: 180px;
+    margin-top: 150px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0) !important;
+    font-size: 30px;
+    
+}

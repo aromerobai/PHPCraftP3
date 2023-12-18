@@ -19,4 +19,9 @@ class homeController extends Controller
     {
         return view('login'); // Redirigir a la ruta 'login'
     }
+
+    public function mostrarActos()
+    {
+        return view('actos'); // Redirigir a la ruta 'actos'
+    }
 }

@@ -41,8 +41,28 @@ body {
     font-size: 21px;
     margin-left: 10px; /* Agregar un margen izquierdo a los botones */
 }
+
 .login-register {
     font: 400 35px 'Montserrat', sans-serif;
     color: rgb(63, 52, 52);;
 }
 
+.column-function {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+}
+
+.fixed-column {
+    position: fixed;
+    top: 0; 
+    right: 0; 
+    width: 350px; 
+    height: 100vh; 
+    overflow-y: auto; 
+    background-color: #fff; 
+    border-left: 1px solid #ddd; 
+    z-index: 999; 
+}
