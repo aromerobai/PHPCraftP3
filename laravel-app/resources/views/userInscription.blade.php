@@ -27,19 +27,24 @@
                         @foreach($actos as $acto)
                         @php
                             $estaInscrito = false;
+                            $inscritos = $acto->inscritos()->count();
+                            $cuposDisponibles = $acto->Num_asistentes - $inscritos;
+                            
                             foreach($actosInscritos as $actoInscrito) {
                                 if ($actoInscrito->id_acto == $acto->Id_acto) {
                                     $estaInscrito = true;
                                     break;
                                 }
+                                
                             }
                         @endphp
 
-                        @if (!$estaInscrito)
+                        @if (!$estaInscrito && $cuposDisponibles > 0)
                             <div class='inscripcion'>
                                 <h3 class='mb-4'>{{ $acto->Titulo }}</h3>
                                 <p>Fecha: {{ date('Y-m-d', strtotime($acto->Fecha)) }} | Hora: {{ date('H:i', strtotime($acto->Hora)) }}</p>
                                 <p>{{ $acto->Descripcion_corta }}</p>
+                                <p>Cupos disponibles: {{ $cuposDisponibles }}</p>
 
                                 <form action="{{ route('userAddInscription') }}" method="post">
                                     <input type='hidden' name='id_acto' value='{{ $acto->Id_acto }}'> 
@@ -49,7 +54,14 @@
                                     <input type='hidden' name='username' value='{{ $Username }}'>
                                     <button type='submit' name='inscribirse' class='btn btn-primary btn-inscripcion'>Inscribirse</button>
                                 </form>
+                                
                             </div>
+                        @elseif (!$estaInscrito && $cuposDisponibles <= 0)
+                            <div class='inscripcion'>
+                                <h3 class='mb-4'>{{ $acto->Titulo }}</h3>
+                                <p>El evento está completo. No hay cupos disponibles para inscripción.</p>
+                            </div>
+                            
                         @endif
                         @endforeach
                         <br>
