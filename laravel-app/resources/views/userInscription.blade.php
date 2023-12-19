@@ -63,18 +63,7 @@
                                         <input type='hidden' name='username' value='{{ $Username }}'>
                                         <button type='submit' name='inscribirse' class='btn btn-primary btn-inscripcion'>Inscribirse</button>
                                     </form>
-                                @endisset
-                                <p>Cupos disponibles: {{ $cuposDisponibles }}</p>
-
-                                <form action="{{ route('userAddInscription') }}" method="post">
-                                    <input type='hidden' name='id_acto' value='{{ $acto->Id_acto }}'> 
-                                    <input type='hidden' name='id_persona' value='{{ $Id }}'>
-                                    <input type='hidden' name='password' value='{{ $Password }}'>
-                                    <input type='hidden' name='email' value='{{ $Email }}'>
-                                    <input type='hidden' name='username' value='{{ $Username }}'>
-                                    <button type='submit' name='inscribirse' class='btn btn-primary btn-inscripcion'>Inscribirse</button>
-                                </form>
-                                
+                                @endisset                           
                             </div>
                         @elseif (!$estaInscrito && $cuposDisponibles <= 0)
                             <div class='inscripcion'>
