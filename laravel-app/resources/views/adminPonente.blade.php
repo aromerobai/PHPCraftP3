@@ -41,6 +41,7 @@
                                     $persona = Persona::with('lista_ponentes')
                                                 ->where('Id_persona', $Id_persona)
                                                 ->first();
+                                                
                                     @endphp
                                     @if ($persona)      
                                         <span><b> Nombre Ponente: </b>{{ $persona->Nombre }} {{ $persona->Apellido1}}, <b> Evento:</b> {{ $ponente['Id_acto'] }}, Orden: {{ $ponente['Orden'] }}</span>
