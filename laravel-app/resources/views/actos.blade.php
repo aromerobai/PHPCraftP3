@@ -29,6 +29,11 @@
                                 <p>{{ $acto->Descripcion_larga }}</p>
                                 <p> Aforo máximo: {{ $acto->Num_asistentes }}</p>
                                 
+                                <!-- Botón de inscripción -->
+                                <a href="{{ Auth::check() ? route('inscripcion', ['acto_id' => $acto->id]) : route('login') }}" 
+                                    class="btn btn-secondary">
+                                    {{ Auth::check() ? 'Inscribirse' : 'Inicia sesión para inscribirte' }}
+                                </a>
                             </div>
                         @endforeach
                     </div>
