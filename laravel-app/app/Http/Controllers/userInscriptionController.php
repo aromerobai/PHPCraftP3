@@ -27,7 +27,13 @@ class userInscriptionController extends Controller
         // Guardar los datos en la base de datos
         $inscripcion->save();
 
-        return view('userInscription', compact('Id','Username', 'Password', 'Email'));
+        if ($request->has('Ponente')) {
+            $Ponente = $request->input('Ponente');
+            return view('userInscription', compact('Id','Username', 'Password', 'Email', 'Ponente'));
+        } else {
+            return view('userInscription', compact('Id','Username', 'Password', 'Email'));
+        }
+        
     }
 
     function userAddInscriptionBack(Request $request){
@@ -37,6 +43,11 @@ class userInscriptionController extends Controller
         $Username = $request->input('username');
         $Email = $request->input('email');
 
-        return view('user', compact('Id','Username', 'Password', 'Email'));
+        if ($request->has('Ponente')) {
+            $Ponente = $request->input('Ponente');
+            return view('user', compact('Id','Username', 'Password', 'Email', 'Ponente'));
+        } else {
+            return view('user', compact('Id','Username', 'Password', 'Email'));
+        }
     }
 }

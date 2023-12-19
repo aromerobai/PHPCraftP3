@@ -41,27 +41,51 @@
                                 <p>Fecha: {{ date('Y-m-d', strtotime($acto->Fecha)) }} | Hora: {{ date('H:i', strtotime($acto->Hora)) }}</p>
                                 <p>{{ $acto->Descripcion_corta }}</p>
 
-                                <form action="{{ route('userDesAddInscription') }}" method="post">
-                                    <input type='hidden' name='id_acto' value='{{ $acto->Id_acto }}'> 
-                                    <input type='hidden' name='id_persona' value='{{ $Id }}'>
-                                    <input type='hidden' name='password' value='{{ $Password }}'>
-                                    <input type='hidden' name='email' value='{{ $Email }}'>
-                                    <input type='hidden' name='username' value='{{ $Username }}'>
-                                    <button type='submit' name='inscribirse' class='btn btn-primary btn-inscripcion'>DesInscribirse</button>
-                                </form>
+                                @isset($Ponente)
+                                    <form action="{{ route('userDesAddInscription') }}" method="post">
+                                        <input type='hidden' name='id_acto' value='{{ $acto->Id_acto }}'> 
+                                        <input type='hidden' name='id_persona' value='{{ $Id }}'>
+                                        <input type='hidden' name='password' value='{{ $Password }}'>
+                                        <input type='hidden' name='email' value='{{ $Email }}'>
+                                        <input type='hidden' name='username' value='{{ $Username }}'>
+                                        <input type="hidden" name="Ponente" value="{{ $Ponente }}">
+                                        <button type='submit' name='inscribirse' class='btn btn-primary btn-inscripcion'>DesInscribirse</button>
+                                    </form>
+                                @else
+                                    <form action="{{ route('userDesAddInscription') }}" method="post">
+                                        <input type='hidden' name='id_acto' value='{{ $acto->Id_acto }}'> 
+                                        <input type='hidden' name='id_persona' value='{{ $Id }}'>
+                                        <input type='hidden' name='password' value='{{ $Password }}'>
+                                        <input type='hidden' name='email' value='{{ $Email }}'>
+                                        <input type='hidden' name='username' value='{{ $Username }}'>
+                                        <button type='submit' name='inscribirse' class='btn btn-primary btn-inscripcion'>DesInscribirse</button>
+                                    </form>
+                                @endif
                             </div>
                         @endif
                         @endforeach
                         <br>
                     </div>
+                    @isset($Ponente)
                     <form action="{{ route('userAddInscriptionBack') }}" method="post">
                         <input type='hidden' name='id_acto' value='{{ $acto->Id_acto }}'> 
                         <input type='hidden' name='id_persona' value='{{ $Id }}'>
                         <input type='hidden' name='password' value='{{ $Password }}'>
                         <input type='hidden' name='email' value='{{ $Email }}'>
                         <input type='hidden' name='username' value='{{ $Username }}'>
+                        <input type="hidden" name="Ponente" value="{{ $Ponente }}">
                         <button type='submit' name='inscribirse' class='btn btn-primary btn-inscripcion'>Volver</button>
                     </form>
+                    @else
+                        <form action="{{ route('userAddInscriptionBack') }}" method="post">
+                            <input type='hidden' name='id_acto' value='{{ $acto->Id_acto }}'> 
+                            <input type='hidden' name='id_persona' value='{{ $Id }}'>
+                            <input type='hidden' name='password' value='{{ $Password }}'>
+                            <input type='hidden' name='email' value='{{ $Email }}'>
+                            <input type='hidden' name='username' value='{{ $Username }}'>
+                            <button type='submit' name='inscribirse' class='btn btn-primary btn-inscripcion'>Volver</button>
+                        </form>
+                    @endisset
                 </div>
             </div>
         </div>

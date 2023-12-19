@@ -30,6 +30,11 @@
                                 <label for="Email">Email:</label>
                                 <input id="newEmail" name="newEmail" class="form-control" placeholder="{{ $Email }}" required>
                             </div>
+                            @isset($Ponente)
+                                <div class="form-group">
+                                    <input type="hidden" name="Ponente" value="{{ $Ponente }}">
+                                </div>
+                            @endisset
                             <div class="d-flex justify-content-between align-items-center flex-nowrap mt-3">
                                 <button type="submit" class="btn btn-block btn-primary align-self-start mr-2">Modificar</button>
                                 <a href="{{ route('userProfileBack') }}" class="btn btn-block btn-secondary align-self-end">Atras</a>

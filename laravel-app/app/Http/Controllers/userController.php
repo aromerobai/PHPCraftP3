@@ -13,8 +13,12 @@ class userController extends Controller
         $Password = $request->input('Password');
         $Email = $request->input('Email'); 
 
-        return view('userProfile', compact('Id', 'Username', 'Password', 'Email'));
-        
+        if ($request->has('Ponente')) {
+            $Ponente = $request->input('Ponente');
+            return view('userProfile', compact('Id', 'Username', 'Password', 'Email', 'Ponente'));
+        } else {
+            return view('userProfile', compact('Id', 'Username', 'Password', 'Email'));
+        }
     }
 
     public function userInscription(Request $request){
@@ -23,7 +27,13 @@ class userController extends Controller
         $Password = $request->input('Password');
         $Email = $request->input('Email'); 
 
-        return view('userInscription', compact('Id','Username', 'Password', 'Email'));
+        if ($request->has('Ponente')) {
+            $Ponente = $request->input('Ponente');
+            return view('userInscription', compact('Id','Username', 'Password', 'Email', 'Ponente'));
+        } else {
+            return view('userInscription', compact('Id','Username', 'Password', 'Email'));
+        }
+        
         
     }
 
@@ -33,7 +43,13 @@ class userController extends Controller
         $Password = $request->input('Password');
         $Email = $request->input('Email'); 
 
-        return view('userDesInscription', compact('Id','Username', 'Password', 'Email'));
+        if ($request->has('Ponente')) {
+            $Ponente = $request->input('Ponente');
+            return view('userDesInscription', compact('Id','Username', 'Password', 'Email', 'Ponente'));
+        } else {
+            return view('userDesInscription', compact('Id','Username', 'Password', 'Email'));
+        }
+       
         
     }
     
@@ -43,10 +59,13 @@ class userController extends Controller
         $Username = $request->input('Username');
         $Password = $request->input('Password');
         $Email = $request->input('Email');
-    
-        // Realizar cualquier procesamiento adicional si es necesario
-    
-        return view('user', compact('view','Id', 'Username', 'Password', 'Email'));
+
+        if ($request->has('Ponente')) {
+            $Ponente = $request->input('Ponente');
+            return view('user', compact('view', 'Id', 'Username', 'Password', 'Email', 'Ponente'));
+        } else {
+            return view('user', compact('view', 'Id', 'Username', 'Password', 'Email'));
+        }
     }
 
     public function userBack(){

@@ -19,6 +19,17 @@ data:
  chmod -R 775 /var/www/html/storage         
  chown -R www-data:www-data /var/www/html/storage 
 
+php artisan storage:link
+chmod -R 755 storage
+chmod -R 777 storage/logs
+chmod -R 777 storage/framework/sessions
+chmod -R 777 storage/framework/views
+chmod -R 777 storage/framework/cache
+
+
+chmod -R 775 public/documentos
+chown -R www-data:www-data public/documentos
+
 # apt-get install -y nodejs
 # apt-get install -y npm
 # npm install -g vite

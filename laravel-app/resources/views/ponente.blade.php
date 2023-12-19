@@ -11,7 +11,7 @@
         <div class="content-box">
             <h1>Ponente {{$Username}}</h1>
             <br><br>
-            <h1 class="text-register">Estas Inscrito</h1>
+            <h1 class="text-register">Eventos en los que estas Inscrito</h1>
             @php
                 use App\Models\Acto;
                 $actos = Acto::all();
@@ -32,7 +32,7 @@
             @if ($estaInscrito)
                 <div class='inscripcion'>
                     <h3 class='mb-4'>{{ $acto->Titulo }}</h3>
-                    <p>Fecha: {{ $acto->Fecha }} | Hora:{{ $acto->Hora }}</p>
+                    <p>Fecha: {{date('Y-m-d', strtotime($acto->Fecha))}} | Hora: {{date('H:i', strtotime($acto->Hora))}} </p>
                     <p>{{ $acto->Descripcion_corta }}</p>
                 </div>
             @endif
@@ -48,14 +48,45 @@
                             ->get()
                             ->pluck('acto');
                 
-                echo "<h1 class='text-register'>Eres Ponente</h1>";
+                echo "<h1 class='text-register'>Eventos en los que eres Ponente</h1>";
                 foreach ($actos as $acto) {    
                     echo " <div class='inscripcion'>";
                     echo " <h3 class='mb-4'> Acto: " . $acto->Titulo . "</h3>";
-                    echo " <p>Fecha:$acto->Fecha | Hora: $acto->Hora</p>";
+                    echo " <p>Fecha: " . date('Y-m-d', strtotime($acto->Fecha)) . "| Hora: " . date('H:i', strtotime($acto->Hora)) . "</p>";
                     echo " <p>$acto->Descripcion_corta </p>";
                     echo " </div>";
                 }
+            @endphp
+            @php
+                use Carbon\Carbon;
+                $actos = ListaPonente::where('Id_persona', $Id)
+                            ->with(['acto' => function ($query) {
+                                $query->where('Fecha', '<', Carbon::now())
+                                    ->with('lista_ponentes.persona');
+                            }])
+                            ->get()
+                            ->pluck('acto');
+
+                echo "<h1 class='text-register'>Eventos en los que has sido Ponente</h1>";
+                foreach ($actos as $acto) {
+                    // Asegúrate de que el acto no sea nulo antes de intentar acceder a sus propiedades
+                    if ($acto) {
+                        echo " <div class='inscripcion'>";
+                        echo " <h3 class='mb-4'> Acto: " . $acto->Titulo . "</h3>";
+                        echo " <p>Fecha: " . date('Y-m-d', strtotime($acto->Fecha)) . "| Hora: " . date('H:i', strtotime($acto->Hora)) . "</p>";
+                        echo " <p>$acto->Descripcion_corta </p>";
+                        echo '<form action="subirArchivo" method="POST" enctype="multipart/form-data">';
+                        echo csrf_field(); // Generar el token CSRF para seguridad
+                        echo '<input type="file" name="archivo" required>';
+                        echo '<input type="hidden" name="Id" value="' . $Id . '">';
+                        echo '<input type="hidden" name="Username" value="' . $Username . '">';
+                        echo '<input type="hidden" name="id_acto" value="' . $acto->Id_acto . '">';
+                        echo '<button type="submit">Subir Archivo</button>';
+                        echo '</form>';
+                        echo " </div>";
+                    }
+                }
+
             @endphp
         </div>
     </div>

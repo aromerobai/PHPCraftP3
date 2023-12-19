@@ -12,40 +12,91 @@
 <body>
     <div class="container">
         <div class="jumbotron mt-3 text-center">
-            <h1 class="display-4">CALENDARIO DE {{ $Username }}
-                <a href="{{ route('userBack') }}" class="btn btn-primary button-cerrar">Cerrar sesión</a>
-            </h1>
-            <p class="lead">Correo electrónico: {{ $Email }}</p>
+            @isset($Ponente)
+                <h1 class="display-4">Ponente {{ $Username }}
+                    <a href="{{ route('userBack') }}" class="btn btn-primary button-cerrar">Cerrar sesión</a>
+                </h1>
+                <p class="lead">Correo electrónico: {{ $Email }}</p>
+            @else
+                <h1 class="display-4">CALENDARIO DE {{ $Username }}
+                    <a href="{{ route('userBack') }}" class="btn btn-primary button-cerrar">Cerrar sesión</a>
+                </h1>
+                <p class="lead">Correo electrónico: {{ $Email }}</p>
+            @endisset
 
-            <form action="{{ route('userProfile') }}" method="post"> 
-                @csrf
-                <input type="hidden" name="Id" value="{{ $Id }}">
-                <input type="hidden" name="Username" value="{{ $Username }}">
-                <input type="hidden" name="Password" value="{{ $Password }}">
-                <input type="hidden" name="Email" value="{{ $Email }}">
-                <button class="btn btn-primary usuario" type="submit">Mi perfil</button>
-            </form><br>
-            <form action="{{ route('userInscription') }}" method="post">
-                @csrf
-                <input type="hidden" name="Id" value="{{ $Id }}">
-                <input type="hidden" name="Username" value="{{ $Username }}">
-                <input type="hidden" name="Password" value="{{ $Password }}">
-                <input type="hidden" name="Email" value="{{ $Email }}">
-                <button class="btn btn-primary usuario"  type="submit">Inscribirse en Evento</button>
-            </form>
-            <form action="{{ route('userDesInscription') }}" method="post">
-                @csrf
-                <input type="hidden" name="Id" value="{{ $Id }}">
-                <input type="hidden" name="Username" value="{{ $Username }}">
-                <input type="hidden" name="Password" value="{{ $Password }}">
-                <input type="hidden" name="Email" value="{{ $Email }}">
-                <button class="btn btn-primary usuario"  type="submit">DesInscribirse de Evento</button>
-            </form>
-
+            @isset($Ponente)
+                <form action="{{ route('userProfile') }}" method="post"> 
+                    @csrf
+                    <input type="hidden" name="Id" value="{{ $Id }}">
+                    <input type="hidden" name="Username" value="{{ $Username }}">
+                    <input type="hidden" name="Password" value="{{ $Password }}">
+                    <input type="hidden" name="Email" value="{{ $Email }}">
+                    <input type="hidden" name="Ponente" value="{{ $Ponente }}">
+                    <button class="btn btn-primary usuario" type="submit">Mi perfil</button>
+                </form><br>
+                <form action="{{ route('userInscription') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="Id" value="{{ $Id }}">
+                    <input type="hidden" name="Username" value="{{ $Username }}">
+                    <input type="hidden" name="Password" value="{{ $Password }}">
+                    <input type="hidden" name="Email" value="{{ $Email }}">
+                    <input type="hidden" name="Ponente" value="{{ $Ponente }}">
+                    <button class="btn btn-primary usuario"  type="submit">Inscribirse en Evento</button>
+                </form>
+                <form action="{{ route('userDesInscription') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="Id" value="{{ $Id }}">
+                    <input type="hidden" name="Username" value="{{ $Username }}">
+                    <input type="hidden" name="Password" value="{{ $Password }}">
+                    <input type="hidden" name="Email" value="{{ $Email }}">
+                    <input type="hidden" name="Ponente" value="{{ $Ponente }}">
+                    <button class="btn btn-primary usuario"  type="submit">DesInscribirse de Evento</button>
+                </form>
+                <form action="{{ route('ponente') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="Id" value="{{ $Id }}">
+                    <input type="hidden" name="Username" value="{{ $Username }}">
+                    <input type="hidden" name="Password" value="{{ $Password }}">
+                    <input type="hidden" name="Email" value="{{ $Email }}">
+                    <input type="hidden" name="Ponente" value="{{ $Ponente }}">
+                    <button class="btn btn-primary usuario"  type="submit">Ponente</button>
+                </form>
+            @else
+                <form action="{{ route('userProfile') }}" method="post"> 
+                    @csrf
+                    <input type="hidden" name="Id" value="{{ $Id }}">
+                    <input type="hidden" name="Username" value="{{ $Username }}">
+                    <input type="hidden" name="Password" value="{{ $Password }}">
+                    <input type="hidden" name="Email" value="{{ $Email }}">
+                    <button class="btn btn-primary usuario" type="submit">Mi perfil</button>
+                </form><br>
+                <form action="{{ route('userInscription') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="Id" value="{{ $Id }}">
+                    <input type="hidden" name="Username" value="{{ $Username }}">
+                    <input type="hidden" name="Password" value="{{ $Password }}">
+                    <input type="hidden" name="Email" value="{{ $Email }}">
+                    <button class="btn btn-primary usuario"  type="submit">Inscribirse en Evento</button>
+                </form>
+                <form action="{{ route('userDesInscription') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="Id" value="{{ $Id }}">
+                    <input type="hidden" name="Username" value="{{ $Username }}">
+                    <input type="hidden" name="Password" value="{{ $Password }}">
+                    <input type="hidden" name="Email" value="{{ $Email }}">
+                    <button class="btn btn-primary usuario"  type="submit">DesInscribirse de Evento</button>
+                </form>
+            @endisset
             <div class="text-center mt-3 botones-calendario">
-                <button class="btn btn-primary mr-2 calendario" onclick="window.location.href='{{ route('usuarioVista', ['view' => 'mes', 'Id' => $Id, 'Username' => $Username, 'Password' => $Password, 'Email' => $Email]) }}'">Mes</button>
-                <button class="btn btn-primary mr-2 calendario" onclick="window.location.href='{{ route('usuarioVista', ['view' => 'semana', 'Id' => $Id, 'Username' => $Username, 'Password' => $Password, 'Email' => $Email]) }}'">Semana</button>
-                <button class="btn btn-primary calendario" onclick="window.location.href='{{ route('usuarioVista', ['view' => 'dia', 'Id' => $Id, 'Username' => $Username, 'Password' => $Password, 'Email' => $Email]) }}'">Dia</button>
+                @isset($Ponente)
+                    <button class="btn btn-primary mr-2 calendario" onclick="window.location.href='{{ route('usuarioVista', ['view' => 'mes', 'Id' => $Id, 'Username' => $Username, 'Password' => $Password, 'Email' => $Email, 'Ponente' => 0]) }}'">Mes</button>
+                    <button class="btn btn-primary mr-2 calendario" onclick="window.location.href='{{ route('usuarioVista', ['view' => 'semana', 'Id' => $Id, 'Username' => $Username, 'Password' => $Password, 'Email' => $Email, 'Ponente' => 0]) }}'">Semana</button>
+                    <button class="btn btn-primary calendario" onclick="window.location.href='{{ route('usuarioVista', ['view' => 'dia', 'Id' => $Id, 'Username' => $Username, 'Password' => $Password, 'Email' => $Email, 'Ponente' => 0]) }}'">Dia</button>
+                @else
+                    <button class="btn btn-primary mr-2 calendario" onclick="window.location.href='{{ route('usuarioVista', ['view' => 'mes', 'Id' => $Id, 'Username' => $Username, 'Password' => $Password, 'Email' => $Email]) }}'">Mes</button>
+                    <button class="btn btn-primary mr-2 calendario" onclick="window.location.href='{{ route('usuarioVista', ['view' => 'semana', 'Id' => $Id, 'Username' => $Username, 'Password' => $Password, 'Email' => $Email]) }}'">Semana</button>
+                    <button class="btn btn-primary calendario" onclick="window.location.href='{{ route('usuarioVista', ['view' => 'dia', 'Id' => $Id, 'Username' => $Username, 'Password' => $Password, 'Email' => $Email]) }}'">Dia</button>
+                @endisset
             </div>
         
             

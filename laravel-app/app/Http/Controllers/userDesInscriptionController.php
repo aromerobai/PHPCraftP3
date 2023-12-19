@@ -18,6 +18,11 @@ class userDesInscriptionController extends Controller
             ->where('Id_persona', $Id)
             ->delete();
 
-        return view('userDesInscription', compact('Id','Username', 'Password', 'Email'));
+        if ($request->has('Ponente')) {
+            $Ponente = $request->input('Ponente');
+            return view('userDesInscription', compact('Id','Username', 'Password', 'Email', 'Ponente'));
+        } else {
+            return view('userDesInscription', compact('Id','Username', 'Password', 'Email'));
+        }
     }
 }

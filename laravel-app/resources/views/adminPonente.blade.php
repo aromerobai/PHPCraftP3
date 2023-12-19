@@ -24,6 +24,7 @@
                             use App\Models\ListaPonente;
                             use App\Models\Usuario;
                             use App\Models\Acto;
+                            use App\Models\Persona;
 
                             $resultado = ListaPonente::all();
                             ?>
@@ -35,7 +36,16 @@
                                     $Orden = $ponente['Orden'];
                                 ?>
                                 <div class="ponente">
-                                    <span>ID: {{ $ponente['id_ponente'] }}, ID personal: {{ $ponente['Id_persona'] }}, ID evento inscrito: {{ $ponente['Id_acto'] }}, Orden: {{ $ponente['Orden'] }}</span>
+                                    <!-- Linea que se muestra -->
+                                    @php
+                                    $persona = Persona::with('lista_ponentes')
+                                                ->where('Id_persona', $Id_persona)
+                                                ->first();
+                                    @endphp
+                                    @if ($persona)      
+                                        <span><b> Nombre Ponente: </b>{{ $persona->Nombre }} {{ $persona->Apellido1}}, <b> Evento:</b> {{ $ponente['Id_acto'] }}, Orden: {{ $ponente['Orden'] }}</span>
+                                    @endif
+                                    <!-- Fin linea que se muestra -->
                                     <button class="btn btn-editar-acto" data-id="{{ $ponente['id_ponente'] }}">Editar</button>
                                     
                                     <form method="POST" action="{{ route('adminGestionarPonente') }}" class="formulario-editar-ponente border p-3" style="display:none;">

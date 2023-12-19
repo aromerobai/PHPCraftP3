@@ -21,7 +21,13 @@ class userProfileController extends Controller
             $usuario->Email = $Email;
         
             if ($usuario->save()) {
-                return view('user', compact('Id', 'Username', 'Password', 'Email'));
+                if ($request->has('Ponente')) {
+                    $Ponente = $request->input('Ponente');
+                    return view('user', compact('Id', 'Username', 'Password', 'Email','Ponente'));
+                } else {
+                    return view('user', compact('Id', 'Username', 'Password', 'Email'));
+                }
+                
             } else {
                 // Error al guardar
                 return back()->with('error', 'Error al guardar los cambios');

@@ -14,6 +14,7 @@ use App\Http\Controllers\adminEditEventController;
 use App\Http\Controllers\adminPonenteController;
 use App\Http\Controllers\adminTypeEventController;
 use App\Http\Controllers\adminConfigInscritos;
+use App\Http\Controllers\ponente;
 use Illuminate\Support\Facades\Route;
 
 
@@ -67,3 +68,6 @@ Route::get('/configInscribir', [adminConfigInscritos::class,'configInscribir'])-
 Route::get('/configDesInscribir', [adminConfigInscritos::class,'configDesInscribir'])->name("configDesInscribir");
 Route::get('/adminDesincribir', [adminConfigInscritos::class,'adminDesincribir'])->name("adminDesincribir");
 Route::get('/adminIncribir', [adminConfigInscritos::class,'adminIncribir'])->name("adminIncribir");
+
+Route::post('/ponente', [ponente::class,'ponente'])->name("ponente");
+Route::post('/subirArchivo', [ponente::class,'subirArchivo'])->name("subirArchivo");

@@ -32,12 +32,13 @@ class loginController extends Controller
                         'Email' => $usuario->Email,
                     ]);
                 }elseif($usuario->Id_tipo_usuario == 2){
-                    return view('ponente')->with([
+                    return view('user')->with([
                         'Id' => $usuario->Id_usuario,
                         'Id_persona' => $usuario->Id_persona,
                         'Username' => $usuario->Username,
                         'Password' => $usuario->Password,
                         'Email' => $usuario->Email,
+                        'Ponente' => 0,
                     ]);
                 }elseif($usuario->Id_tipo_usuario == 3){
                     return view('admin');
