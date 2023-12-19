@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Calendario con Bootstrap</title>
+    <title>Panel principal</title>
     
     <link rel="stylesheet" href="{{ asset('css/usuarioVista.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
