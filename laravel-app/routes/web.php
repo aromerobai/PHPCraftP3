@@ -71,3 +71,5 @@ Route::get('/adminIncribir', [adminConfigInscritos::class,'adminIncribir'])->nam
 
 Route::post('/ponente', [ponente::class,'ponente'])->name("ponente");
 Route::post('/subirArchivo', [ponente::class,'subirArchivo'])->name("subirArchivo");
+
+Route::get('/obtenerActosFuturos', [adminController::class, 'obtenerActosFuturos'])->name("obtenerActosFuturos");

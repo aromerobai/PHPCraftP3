@@ -21,6 +21,9 @@
             <!-- Ejemplo de enlace a una ruta definida en Laravel -->
             <a href="{{ route('adminAddEvent') }}" class="btn btn-primary button-crear-evento">AÑADIR EVENTO</a>
             <a href="{{ route('adminConfigEvent') }}" class="btn btn-primary button-configurar-evento">CONFIGURAR EVENTO</a>
+            
         </div>
+
+        <a href="{{ route('obtenerActosFuturos') }}" class="btn btn-primary button-json">GENERAR JSON</a>
     </div>
 </body>

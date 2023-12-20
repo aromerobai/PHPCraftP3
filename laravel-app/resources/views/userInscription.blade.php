@@ -30,6 +30,12 @@
                             $inscritos = $acto->inscritos()->count();
                             $cuposDisponibles = $acto->Num_asistentes - $inscritos;
                             
+                            $fechaActual = date('Y-m-d');
+                            $fechaEvento = date('Y-m-d', strtotime($acto->Fecha));
+
+                            if ($fechaEvento < $fechaActual) {
+                                continue; // Saltar a la siguiente iteración si el evento ya ocurrió
+                            }
                             foreach($actosInscritos as $actoInscrito) {
                                 if ($actoInscrito->id_acto == $acto->Id_acto) {
                                     $estaInscrito = true;

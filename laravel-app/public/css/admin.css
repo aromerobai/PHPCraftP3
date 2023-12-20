@@ -74,12 +74,15 @@ body {
     border-color: rgb(0, 0, 0);
 }
 
-
-
-
 .button-cerrar {
     width: 120px;
     background-color: #f1904e !important; 
     color: #ffffff;  
     float: right;
 }
+
+.button-json{
+    background-color: #f1904e !important;
+    margin-bottom: 50px;
+}
+

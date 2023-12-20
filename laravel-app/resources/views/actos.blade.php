@@ -22,6 +22,16 @@
                         @endphp
 
                         @foreach($actos as $acto)
+                            @php
+                                $fechaActual = date('Y-m-d');
+                                $fechaEvento = date('Y-m-d', strtotime($acto->Fecha));
+
+                                if ($fechaEvento < $fechaActual) {
+                                    continue; 
+                                }
+
+                            @endphp
+                            
                             <div class='inscripcion'>
                                 <h3 class='mb-4'>{{ $acto->Titulo }}</h3>
                                 <p>Fecha: {{ date('Y-m-d', strtotime($acto->Fecha)) }} | Hora: {{ date('H:i', strtotime($acto->Hora)) }}</p>

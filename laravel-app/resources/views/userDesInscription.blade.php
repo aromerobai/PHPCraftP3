@@ -27,6 +27,13 @@
                         @foreach($actos as $acto)
                         @php
                             $estaInscrito = false;
+                            $fechaActual = date('Y-m-d');
+                            $fechaEvento = date('Y-m-d', strtotime($acto->Fecha));
+
+                            if ($fechaEvento < $fechaActual) {
+                                continue; 
+                            }
+
                             foreach($actosInscritos as $actoInscrito) {
                                 if ($actoInscrito->id_acto == $acto->Id_acto) {
                                     $estaInscrito = true;
