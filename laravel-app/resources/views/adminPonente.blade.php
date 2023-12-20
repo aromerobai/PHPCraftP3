@@ -42,9 +42,11 @@
                                                 ->where('Id_persona', $Id_persona)
                                                 ->first();
                                                 
+                                    $actoo = Acto::find($Id_acto);
+
                                     @endphp
                                     @if ($persona)      
-                                        <span><b> Nombre Ponente: </b>{{ $persona->Nombre }} {{ $persona->Apellido1}}, <b> Evento:</b> {{ $ponente['Id_acto'] }}, Orden: {{ $ponente['Orden'] }}</span>
+                                        <span><b> Nombre Ponente: </b>{{ $persona->Nombre }} {{ $persona->Apellido1}}, <b> Evento:</b> {{ $actoo->Titulo }}, Orden: {{ $ponente['Orden'] }}</span>
                                     @endif
                                     <!-- Fin linea que se muestra -->
                                     <button class="btn btn-editar-acto" data-id="{{ $ponente['id_ponente'] }}">Editar</button>

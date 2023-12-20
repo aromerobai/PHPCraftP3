@@ -30,5 +30,7 @@ class VerifyCsrfToken extends Middleware
         'adminTypeEvent',
         'adminTypeEventEdit',
         'adminTypeEventAdd',
+        'documentosPagina',
+        'ponente',
     ];
 }

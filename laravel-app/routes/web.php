@@ -15,6 +15,7 @@ use App\Http\Controllers\adminPonenteController;
 use App\Http\Controllers\adminTypeEventController;
 use App\Http\Controllers\adminConfigInscritos;
 use App\Http\Controllers\ponente;
+use App\Http\Controllers\documentos;
 use Illuminate\Support\Facades\Route;
 
 
@@ -71,5 +72,6 @@ Route::get('/adminIncribir', [adminConfigInscritos::class,'adminIncribir'])->nam
 
 Route::post('/ponente', [ponente::class,'ponente'])->name("ponente");
 Route::post('/subirArchivo', [ponente::class,'subirArchivo'])->name("subirArchivo");
+Route::post('/documentosPagina', [documentos::class,'documentosPagina'])->name("documentosPagina");
 
 Route::get('/obtenerActosFuturos', [adminController::class, 'obtenerActosFuturos'])->name("obtenerActosFuturos");

@@ -61,6 +61,15 @@
                     <input type="hidden" name="Ponente" value="{{ $Ponente }}">
                     <button class="btn btn-primary usuario"  type="submit">Ponente</button>
                 </form>
+                <form action="{{ route('documentosPagina') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="Id" value="{{ $Id }}">
+                    <input type="hidden" name="Username" value="{{ $Username }}">
+                    <input type="hidden" name="Password" value="{{ $Password }}">
+                    <input type="hidden" name="Email" value="{{ $Email }}">
+                    <input type="hidden" name="Ponente" value="{{ $Ponente }}">
+                    <button class="btn btn-primary usuario"  type="submit">Documentos</button>
+                </form>
             @else
                 <form action="{{ route('userProfile') }}" method="post"> 
                     @csrf
@@ -85,6 +94,14 @@
                     <input type="hidden" name="Password" value="{{ $Password }}">
                     <input type="hidden" name="Email" value="{{ $Email }}">
                     <button class="btn btn-primary usuario"  type="submit">DesInscribirse de Evento</button>
+                </form>
+                <form action="{{ route('documentosPagina') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="Id" value="{{ $Id }}">
+                    <input type="hidden" name="Username" value="{{ $Username }}">
+                    <input type="hidden" name="Password" value="{{ $Password }}">
+                    <input type="hidden" name="Email" value="{{ $Email }}">
+                    <button class="btn btn-primary usuario"  type="submit">Documentos</button>
                 </form>
             @endisset
             <div class="text-center mt-3 botones-calendario">
